@@ -1,7 +1,7 @@
 {
   "name": "doa-harian-katolik",
   "displayName": "Doa Harian",
-  "description": "Menyediakan kalender liturgi, daftar doa, dan pengingat ibadah harian.",
+  "description": "Menyediakan kalender ibadah harian, pengingat doa, dan informasi terkait kegiatan keagamaan.",
   "version": "0.0.1",
   "publisher": "ilhamriSKY",
   "engines": {
