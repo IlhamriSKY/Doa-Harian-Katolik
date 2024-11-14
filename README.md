@@ -2,7 +2,7 @@ Doa Harian Katolik
 ==================
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-![Version](https://img.shields.io/badge/version-0.0.1-brightgreen.svg)
+![Version](https://img.shields.io/badge/version-0.0.3-brightgreen.svg)
 
 Description
 -----------
