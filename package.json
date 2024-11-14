@@ -1,76 +1,78 @@
 {
-  "name": "doa-harian-katolik",
-  "displayName": "Doa Harian Katolik",
-  "description": "Menyediakan kalender ibadah harian, pengingat doa, dan informasi terkait kegiatan keagamaan.",
-  "version": "0.0.3",
-  "publisher": "ilhamriSKY",
-  "engines": {
-    "vscode": "^1.95.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onCommand:doa-harian-katolik.showOptions"
-  ],
-  "main": "./out/extension.bundle.js",
-  "contributes": {
-    "configuration": {
-      "type": "object",
-      "title": "Pengaturan Doa Harian Katolik",
-      "properties": {
-        "doaHarianKatolik.city": {
-          "type": "string",
-          "default": "Jakarta",
-          "description": "Nama kota untuk menentukan zona waktu pengingat doa harian."
-        },
-        "doaHarianKatolik.reminderMinutesBefore": {
-          "type": "number",
-          "default": 5,
-          "description": "Atur jumlah menit sebelum waktu doa untuk menerima pengingat."
-        },
-        "doaHarianKatolik.debugMode": {
-          "type": "boolean",
-          "default": false,
-          "description": "Aktifkan mode debug untuk menguji reminder dengan interval yang lebih cepat."
+    "name": "doa-harian-katolik",
+    "displayName": "Doa Harian Katolik",
+    "description": "Menyediakan kalender ibadah harian, pengingat doa, dan informasi terkait kegiatan keagamaan.",
+    "version": "0.0.4",
+    "publisher": "ilhamriSKY",
+    "engines": {
+        "vscode": "^1.95.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:doa-harian-katolik.showOptions",
+        "onStartupFinished"
+    ],
+    "main": "./out/extension.bundle.js",
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Pengaturan Doa Harian Katolik",
+            "properties": {
+                "doaHarianKatolik.city": {
+                    "type": "string",
+                    "default": "Jakarta",
+                    "description": "Nama kota untuk menentukan zona waktu pengingat doa harian."
+                },
+                "doaHarianKatolik.reminderMinutesBefore": {
+                    "type": "number",
+                    "default": 5,
+                    "description": "Atur jumlah menit sebelum waktu doa untuk menerima pengingat."
+                },
+                "doaHarianKatolik.debugMode": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Aktifkan mode debug untuk menguji reminder dengan interval yang lebih cepat."
+                }
+            }
         }
-      }
-    }
-  },
-  "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "vscode-test"
-  },
-  "dependencies": {
-    "all-the-cities": "^3.1.0",
-    "axios": "^1.7.7",
-    "cheerio": "^1.0.0",
-    "doa-harian-katolik": "file:",
-    "moment-timezone": "^0.5.46",
-    "tz-lookup": "^6.1.25"
-  },
-  "devDependencies": {
-    "@types/mocha": "^10.0.9",
-    "@types/node": "20.x",
-    "@types/vscode": "^1.95.0",
-    "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1",
-    "eslint": "^9.13.0",
-    "ts-loader": "^9.5.1",
-    "webpack": "^5.96.1",
-    "webpack-cli": "^5.1.4",
-    "webpack-node-externals": "^3.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ilhamrisky/Doa-Harian-Katolik.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ilhamrisky/Doa-Harian-Katolik/issues"
-  },
-  "license": "MIT",
-  "icon": "resources/icon.jpg",
-  "banner": "resources/banner.png"
+    },
+    "scripts": {
+        "build": "webpack --config webpack.config.js",
+        "lint": "eslint .",
+        "pretest": "npm run lint",
+        "test": "vscode-test",
+        "watch": "webpack --watch --config webpack.config.js"
+    },
+    "dependencies": {
+        "axios": "^1.7.7",
+        "cheerio": "^1.0.0",
+        "cities.json": "^1.1.42",
+        "doa-harian-katolik": "file:",
+        "moment-timezone": "^0.5.46",
+        "tz-lookup": "^6.1.25"
+    },
+    "devDependencies": {
+        "@types/mocha": "^10.0.9",
+        "@types/node": "20.x",
+        "@types/vscode": "^1.95.0",
+        "@vscode/test-cli": "^0.0.10",
+        "@vscode/test-electron": "^2.4.1",
+        "eslint": "^9.13.0",
+        "ts-loader": "^9.5.1",
+        "webpack": "^5.96.1",
+        "webpack-cli": "^5.1.4",
+        "webpack-node-externals": "^3.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ilhamrisky/Doa-Harian-Katolik.git"
+    },
+    "bugs": {
+        "url": "https://github.com/ilhamrisky/Doa-Harian-Katolik/issues"
+    },
+    "license": "MIT",
+    "icon": "resources/icon.jpg",
+    "banner": "resources/banner.png"
 }

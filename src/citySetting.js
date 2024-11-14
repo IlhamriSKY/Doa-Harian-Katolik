@@ -1,11 +1,11 @@
 const vscode = require("vscode");
-const allCities = require("all-the-cities");
+const cities = require("cities.json");
 // Fungsi untuk menginisialisasi pengaturan kota
 async function initializeCitySetting() {
-    // Ambil dan urutkan daftar nama kota
-    const cities = allCities.map(city => city.name).sort();
+    // Ambil dan urutkan daftar nama kota dari cities.json
+    const cityNames = cities.map(city => city.name).sort();
     // Tampilkan pilihan kota kepada pengguna
-    const selectedCity = await vscode.window.showQuickPick(cities, {
+    const selectedCity = await vscode.window.showQuickPick(cityNames, {
         placeHolder: "Pilih kota Anda untuk pengingat doa harian"
     });
     // Perbarui pengaturan kota jika pengguna memilih satu kota

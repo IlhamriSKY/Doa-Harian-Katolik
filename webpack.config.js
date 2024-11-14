@@ -8,16 +8,22 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'out'),
         filename: 'extension.bundle.js',
+        libraryTarget: 'commonjs2'
     },
-    externals: [nodeExternals(), 'vscode'],
+    externals: {
+        vscode: 'commonjs vscode',
+        ...nodeExternals(),
+    },
     resolve: {
         extensions: ['.ts', '.js'],
     },
     module: {
-        rules: [{
-            test: /\.ts$/,
-            use: 'ts-loader',
-            exclude: /node_modules/,
-        }, ],
+        rules: [
+            {
+                test: /\.ts$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
+        ],
     },
 };

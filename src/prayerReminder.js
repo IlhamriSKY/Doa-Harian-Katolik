@@ -1,18 +1,19 @@
 const vscode = require("vscode");
 const moment = require("moment-timezone");
-const allCities = require("all-the-cities");
+const cities = require("cities.json");
 const tzLookup = require("tz-lookup");
 // Fungsi untuk mendapatkan zona waktu berdasarkan nama kota
 function getCityTimezone(cityName) {
-    const city = allCities.find(city => city.name.toLowerCase() === cityName.toLowerCase());
+    const city = cities.find(city => city.name.toLowerCase() === cityName.toLowerCase());
     if (city) {
-        const [longitude, latitude] = city.loc.coordinates;
+        const longitude = city.lng;
+        const latitude = city.lat;
         const timezone = tzLookup(latitude, longitude);
         logDebug(`Kota ditemukan: ${cityName}, Timezone: ${timezone}`);
         return timezone;
     } else {
         vscode.window.showErrorMessage(`Kota ${cityName} tidak ditemukan.`);
-        logDebug(`Kota ${cityName} tidak ditemukan dalam all-the-cities`);
+        logDebug(`Kota ${cityName} tidak ditemukan dalam cities.json`);
         return null;
     }
 }
