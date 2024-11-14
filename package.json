@@ -1,8 +1,8 @@
 {
   "name": "doa-harian-katolik",
-  "displayName": "Doa Harian",
+  "displayName": "Doa Harian Katolik",
   "description": "Menyediakan kalender ibadah harian, pengingat doa, dan informasi terkait kegiatan keagamaan.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "ilhamriSKY",
   "engines": {
     "vscode": "^1.95.0"
@@ -70,5 +70,7 @@
   "bugs": {
     "url": "https://github.com/ilhamrisky/Doa-Harian-Katolik/issues"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "icon": "resources/icon.jpg",
+  "banner": "resources/banner.png"
 }
