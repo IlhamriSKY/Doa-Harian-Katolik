@@ -427,27 +427,23 @@ function generateReadingHTML(content) {
                     max-width: 800px;
                     margin: auto;
                 }
-
                 h2 {
                     color: #bb86fc;
                     text-align: center;
                     font-size: 1.8em;
                     margin-bottom: 20px;
                 }
-
                 .verse-container {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
                 }
-
                 .verse {
                     color: #61dafb;
                     font-weight: bold;
                     margin-bottom: 5px;
                     flex: 1;
                 }
-
                 .text {
                     color: #e0e0e0;
                     font-size: 1em;
@@ -455,21 +451,18 @@ function generateReadingHTML(content) {
                     padding-left: 10px;
                     border-left: 3px solid #61dafb;
                 }
-
                 .separator {
                     margin: 25px 0;
                     height: 1px;
                     background-color: #444;
                     border: none;
                 }
-
                 .container {
                     background-color: #2d2d2d;
                     padding: 20px;
                     border-radius: 10px;
                     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
                 }
-
                 .copy-button {
                     background: none;
                     border: none;
@@ -478,11 +471,9 @@ function generateReadingHTML(content) {
                     cursor: pointer;
                     transition: color 0.2s;
                 }
-
                 .copy-button:hover {
                     color: #bb86fc;
                 }
-
                 /* Toast Styles */
                 .toast {
                     visibility: hidden;
@@ -501,12 +492,10 @@ function generateReadingHTML(content) {
                     opacity: 0;
                     transition: opacity 0.5s, visibility 0.5s;
                 }
-
                 .toast.show {
                     visibility: visible;
                     opacity: 1;
                 }
-
             </style>
         </head>
         <body>
@@ -514,13 +503,10 @@ function generateReadingHTML(content) {
                 <h2>Detail Bacaan</h2>
                 ${content}
             </div>
-
             <!-- Toast Notification -->
             <div id="copyToast" class="toast">Teks berhasil disalin</div>
-
             <script>
                 const vscode = acquireVsCodeApi();
-
                 // Fungsi untuk menampilkan toast
                 function showToast() {
                     const toast = document.getElementById("copyToast");
@@ -529,7 +515,6 @@ function generateReadingHTML(content) {
                         toast.classList.remove("show");
                     }, 3000);
                 }
-
                 // Menambahkan event listener untuk tombol copy
                 document.querySelectorAll('.copy-button').forEach(button => {
                     button.addEventListener('click', () => {

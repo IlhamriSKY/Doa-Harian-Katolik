@@ -1,7 +1,7 @@
 Doa Harian Katolik
 ==================
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Version](https://img.shields.io/badge/version-0.0.1-brightgreen.svg)
 
 Description
@@ -28,7 +28,7 @@ Untuk menginstall plugin ini, Anda dapat mengikuti langkah-langkah berikut:
 License
 -------
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 Contributing
 ------------
