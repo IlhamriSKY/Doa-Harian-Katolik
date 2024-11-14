@@ -1,0 +1,69 @@
+{
+  "name": "doa-harian-katolik",
+  "displayName": "Doa Harian",
+  "description": "Menyediakan kalender liturgi, daftar doa, dan pengingat ibadah harian.",
+  "version": "0.0.1",
+  "publisher": "ilhamriSKY",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:doa-harian-katolik.showOptions"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Pengaturan Doa Harian Katolik",
+      "properties": {
+        "doaHarianKatolik.city": {
+          "type": "string",
+          "default": "Jakarta",
+          "description": "Nama kota untuk menentukan zona waktu pengingat doa harian."
+        },
+        "doaHarianKatolik.reminderMinutesBefore": {
+          "type": "number",
+          "default": 5,
+          "description": "Atur jumlah menit sebelum waktu doa untuk menerima pengingat."
+        },
+        "doaHarianKatolik.debugMode": {
+          "type": "boolean",
+          "default": false,
+          "description": "Aktifkan mode debug untuk menguji reminder dengan interval yang lebih cepat."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "dependencies": {
+    "all-the-cities": "^3.1.0",
+    "axios": "^1.7.7",
+    "cheerio": "^1.0.0",
+    "doa-harian-katolik": "file:",
+    "moment-timezone": "^0.5.46",
+    "tz-lookup": "^6.1.25"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.9",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.95.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.13.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ilhamrisky/Doa-Harian-Katolik.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ilhamrisky/Doa-Harian-Katolik/issues"
+  },
+  "license": "MIT"
+}
