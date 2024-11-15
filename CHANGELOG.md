@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.0.6] - 2024-11-15
+### Changed
+- Ganti deskripsi untuk penambahan fungsi
+
 ## [0.0.5] - 2024-11-15
 ### Added
 - Menambahkan fungsi `showBible` untuk menampilkan Alkitab dengan tampilan berfilter berdasarkan kitab, bab, dan ayat.
