@@ -5,7 +5,7 @@ Doa Harian Katolik
 
 ==================
 
-![Demo Video](./assets/video.gif)
+![Demo Video](video.gif)
 
 Description
 -----------
