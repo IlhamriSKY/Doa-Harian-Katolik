@@ -1,7 +1,9 @@
 const vscode = require("vscode");
 const axios = require("axios");
 const cheerio = require("cheerio");
-// Fungsi untuk menampilkan kalender liturgi dengan animasi loading
+const moment = require("moment-timezone");
+
+// Displays the liturgical calendar with a loading animation
 async function showLiturgicalCalendar() {
     const panel = vscode.window.createWebviewPanel(
         "liturgicalCalendar",
@@ -49,7 +51,22 @@ async function showLiturgicalCalendar() {
         panel.webview.html = generateErrorHTML("Gagal memuat data kalender. Silakan coba lagi.");
     }
 }
-// Fungsi untuk mengambil data kalender dengan banyak bacaan
+
+// Get today's liturgical information based on timezone
+async function getTodayLiturgicalInfo(timezone) {
+    const today = moment.tz(timezone).format("YYYY-MM-DD");
+    const yearMonth = today.slice(0, 7);
+    const calendarData = await fetchLiturgicalCalendar(yearMonth);
+
+    const todayInfo = calendarData.find(item => {
+        const itemDate = moment(item.localDate, "DD MM YYYY").format("YYYY-MM-DD");
+        return itemDate === today;
+    });
+
+    return todayInfo ? { celebration: todayInfo.name, color: todayInfo.color } : null;
+}
+
+// Fetch liturgical calendar data from the source URL
 async function fetchLiturgicalCalendar(yearMonth) {
     const url = `https://www.imankatolik.or.id/kalender.php?t=${yearMonth.slice(0, 4)}&b=${yearMonth.slice(5, 7)}`;
     try {
@@ -61,7 +78,6 @@ async function fetchLiturgicalCalendar(yearMonth) {
             const name = $(element).find(".k_perayaan").text().trim();
             const readingsElements = $(element).find(".k_alkitab a");
             const readings = [];
-            // Menyimpan setiap bacaan dengan linknya
             readingsElements.each((i, el) => {
                 const readingText = $(el).text().trim();
                 const readingLink = $(el).attr("href");
@@ -89,7 +105,8 @@ async function fetchLiturgicalCalendar(yearMonth) {
         return [];
     }
 }
-// Fungsi untuk menampilkan animasi loading
+
+// Generate HTML for the loading animation
 function generateLoadingHTML() {
     const skeletonCard = `
         <div class="card skeleton">
@@ -171,7 +188,8 @@ function generateLoadingHTML() {
         </html>
     `;
 }
-// Fungsi untuk menampilkan skeleton loading khusus untuk halaman detail bacaan
+
+// Generate loading skeleton HTML for the reading details page
 function generateReadingSkeletonHTML() {
     const skeletonItem = `
         <div class="skeleton-verse"></div>
@@ -179,7 +197,6 @@ function generateReadingSkeletonHTML() {
         <div class="skeleton-text short"></div>
         <hr class="separator">
     `;
-    // Membuat beberapa skeleton item untuk simulasi loading banyak bacaan
     const skeletonContent = Array(5).fill(skeletonItem).join("");
     return `
         <!DOCTYPE html>
@@ -259,7 +276,8 @@ function generateReadingSkeletonHTML() {
         </html>
     `;
 }
-// Fungsi untuk menghasilkan HTML tampilan kalender dengan banyak bacaan
+
+// Function to generate HTML calendar display with multiple readings
 function generateCalendarHTML(data) {
     const colorMapping = {
         Hijau: "#00FF00", Putih: "#FFFFFF", Ungu: "#800080", Merah: "#FF0000",
@@ -370,7 +388,8 @@ function generateCalendarHTML(data) {
         </html>
     `;
 }
-// Fungsi untuk membuka panel baru dengan detail bacaan
+
+// Function to open a new panel with reading details
 async function openReadingDetailsPanel(url) {
     const panel = vscode.window.createWebviewPanel(
         "readingDetails",
@@ -378,7 +397,7 @@ async function openReadingDetailsPanel(url) {
         vscode.ViewColumn.One,
         { enableScripts: true }
     );
-    panel.webview.html = generateReadingSkeletonHTML(); // Menampilkan skeleton loading
+    panel.webview.html = generateReadingSkeletonHTML();
     try {
         const response = await axios.get(url);
         const $ = cheerio.load(response.data);
@@ -408,7 +427,8 @@ async function openReadingDetailsPanel(url) {
         panel.webview.html = generateErrorHTML("Gagal memuat data bacaan. Periksa koneksi internet Anda dan coba lagi.");
     }
 }
-// Fungsi untuk menampilkan semua detail bacaan dalam format HTML yang lebih menarik
+
+// Function to display all reading details in a more attractive HTML format
 function generateReadingHTML(content) {
     return `
         <!DOCTYPE html>
@@ -535,7 +555,8 @@ function generateReadingHTML(content) {
         </html>
     `;
 }
-// Fungsi untuk menampilkan pesan error dalam format HTML yang lebih menarik
+
+// Function to display error messages in a more attractive HTML format
 function generateErrorHTML(message) {
     return `
         <!DOCTYPE html>
@@ -607,4 +628,4 @@ function generateErrorHTML(message) {
         </html>
     `;
 }
-module.exports = { showLiturgicalCalendar };
+module.exports = { showLiturgicalCalendar, getTodayLiturgicalInfo };

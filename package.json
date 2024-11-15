@@ -2,7 +2,7 @@
     "name": "doa-harian-katolik",
     "displayName": "Doa Harian Katolik",
     "description": "Menyediakan kalender ibadah harian, pengingat doa, dan informasi terkait kegiatan keagamaan.",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "publisher": "ilhamriSKY",
     "engines": {
         "vscode": "^1.95.0"
@@ -54,11 +54,15 @@
         "tz-lookup": "^6.1.25"
     },
     "devDependencies": {
+        "@babel/core": "^7.26.0",
+        "@babel/preset-env": "^7.26.0",
         "@types/mocha": "^10.0.9",
         "@types/node": "20.x",
         "@types/vscode": "^1.95.0",
         "@vscode/test-cli": "^0.0.10",
         "@vscode/test-electron": "^2.4.1",
+        "babel-loader": "^9.2.1",
+        "copy-webpack-plugin": "^12.0.2",
         "eslint": "^9.13.0",
         "ts-loader": "^9.5.1",
         "webpack": "^5.96.1",
