@@ -115,7 +115,7 @@ function generateStyles() {
             display: flex;
             flex-direction: column;
             gap: 20px;
-            max-width: 830px;
+            max-width: 820px;
             width: 100%;
             margin: auto;
             padding: 0 10px;
