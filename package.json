@@ -1,7 +1,7 @@
 {
     "name": "doa-harian-katolik",
     "displayName": "Doa Harian Katolik",
-    "description": "Menyediakan kalender ibadah harian, pengingat doa, informasi orang kudus, kumpulan doa, dan akses ke Alkitab dengan fitur pencarian per ayat dan kitab.",
+    "description": "Menyediakan kalender ibadah harian, pengingat doa, informasi orang kudus, kumpulan doa, dan akses ke Alkitab serta fitur lainya.",
     "version": "0.0.6",
     "publisher": "ilhamriSKY",
     "engines": {

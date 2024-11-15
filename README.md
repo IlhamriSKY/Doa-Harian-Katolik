@@ -6,7 +6,13 @@ Doa Harian Katolik
 Description
 -----------
 
-Plugin ini menyediakan kalender liturgi harian Katolik, daftar doa, dan pengingat doa harian. Anda bisa mengatur kota dan mendapatkan pengingat doa berdasarkan zona waktu kota Anda.
+Plugin ini menyediakan kalender liturgi harian Katolik, kumpulan doa, informasi orang kudus, akses Alkitab, dan pengingat doa harian. Anda dapat mengatur kota dan mendapatkan pengingat doa berdasarkan zona waktu kota Anda. Fitur yang disediakan meliputi:
+*   Kalender Liturgi untuk mengikuti jadwal ibadah harian.
+*   Kumpulan Doa yang dilengkapi dengan fungsi pencarian untuk memudahkan akses.
+*   Informasi Orang Kudus untuk mengenal santo/santa yang diperingati setiap hari.
+*   Akses Alkitab dengan fitur pencarian berdasarkan kitab dan ayat.
+*   Pengingat Doa Harian (Doa Angelus pagi, siang, dan Doa Kerahiman Ilahi) dengan penyesuaian zona waktu berdasarkan kota pilihan Anda.
+*   Dan fitur lainya
 
 Changelog
 ---------
